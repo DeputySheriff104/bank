@@ -3,9 +3,11 @@ package ru.kolesnikov.bank.ui.console.output;
 import ru.kolesnikov.bank.models.operation.Deposit;
 import ru.kolesnikov.bank.ui.console.output.options.ConsoleColors;
 
+import java.util.List;
+
 public class DepositConsoleOutput {
 
-    public static String depositsToString(Deposit[] deposits) {
+    public static String depositsToString(List<Deposit> deposits) {
         StringBuilder output = new StringBuilder();
         for (Deposit deposit: deposits) {
             output.append(depositToString(deposit));

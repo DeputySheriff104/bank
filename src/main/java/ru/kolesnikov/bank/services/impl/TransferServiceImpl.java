@@ -1,39 +1,41 @@
 package ru.kolesnikov.bank.services.impl;
 
-import ru.kolesnikov.bank.dao.operation.TransferDAO;
+import ru.kolesnikov.bank.dao.entities.operation.TransferDAOImpl;
 import ru.kolesnikov.bank.models.operation.Transfer;
-import ru.kolesnikov.bank.services.TransferService;
+import ru.kolesnikov.bank.services.Service;
 
-public class TransferServiceImpl implements TransferService {
+import java.util.List;
 
-    private final TransferDAO transferDAO;
+public class TransferServiceImpl implements Service<Transfer, Integer> {
 
-    public TransferServiceImpl(TransferDAO transferDAO) {
-        this.transferDAO = transferDAO;
+    private final TransferDAOImpl transferDAOImpl;
+
+    public TransferServiceImpl(TransferDAOImpl transferDAOImpl) {
+        this.transferDAOImpl = transferDAOImpl;
     }
 
     @Override
-    public Transfer create(Transfer newTransfer) {
-        return transferDAO.create(newTransfer);
+    public boolean create(Transfer newTransfer) {
+        return transferDAOImpl.create(newTransfer);
     }
 
     @Override
-    public Transfer[] getAll() {
-        return transferDAO.getAll();
+    public List<Transfer> getAll() {
+        return transferDAOImpl.getAll();
     }
 
     @Override
     public Transfer getById(Integer id) {
-        return transferDAO.getById(id);
+        return transferDAOImpl.getById(id);
     }
 
     @Override
-    public Transfer updateById(Integer id, Transfer newTransfer) {
-        return transferDAO.updateById(id, newTransfer);
+    public boolean updateById(Integer id, Transfer newTransfer) {
+        return transferDAOImpl.updateById(id, newTransfer);
     }
 
     @Override
-    public Transfer deleteById(Integer id) {
-        return transferDAO.deleteById(id);
+    public boolean deleteById(Integer id) {
+        return transferDAOImpl.deleteById(id);
     }
 }

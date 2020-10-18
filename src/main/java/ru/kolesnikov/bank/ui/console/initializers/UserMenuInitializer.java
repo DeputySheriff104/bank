@@ -2,6 +2,7 @@ package ru.kolesnikov.bank.ui.console.initializers;
 
 import ru.kolesnikov.bank.ui.console.commands.menus.user.UserMenuConsoleCommands;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class UserMenuInitializer {

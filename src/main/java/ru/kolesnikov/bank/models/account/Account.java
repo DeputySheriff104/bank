@@ -11,7 +11,8 @@ public class Account extends Entity {
     public Account() {
     }
 
-    public Account(int userId, String password, int moneyAmount) {
+    public Account(int id, int userId, String password, int moneyAmount) {
+        setId(id);
         this.userId = userId;
         this.password = password;
         this.moneyAmount = moneyAmount;

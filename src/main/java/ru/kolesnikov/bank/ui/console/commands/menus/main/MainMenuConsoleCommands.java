@@ -2,6 +2,8 @@ package ru.kolesnikov.bank.ui.console.commands.menus.main;
 
 import ru.kolesnikov.bank.ui.console.initializers.*;
 
+import java.sql.SQLException;
+
 public class MainMenuConsoleCommands {
 
     public static void goToUsers() {

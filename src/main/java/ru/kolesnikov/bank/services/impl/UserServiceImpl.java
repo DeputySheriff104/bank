@@ -1,38 +1,40 @@
 package ru.kolesnikov.bank.services.impl;
 
-import ru.kolesnikov.bank.dao.user.UserDAO;
+import ru.kolesnikov.bank.dao.entities.user.UserDAOImpl;
 import ru.kolesnikov.bank.models.user.User;
-import ru.kolesnikov.bank.services.UserService;
+import ru.kolesnikov.bank.services.Service;
 
-public class UserServiceImpl implements UserService {
-    private final UserDAO userDAO;
+import java.util.List;
 
-    public UserServiceImpl(UserDAO userDAO) {
-        this.userDAO = userDAO;
+public class UserServiceImpl implements Service<User, Integer> {
+    private final UserDAOImpl userDAOImpl;
+
+    public UserServiceImpl(UserDAOImpl userDAOImpl) {
+        this.userDAOImpl = userDAOImpl;
     }
 
     @Override
-    public User create(User newUser) {
-        return userDAO.create(newUser);
+    public boolean create(User newUser) {
+        return userDAOImpl.create(newUser);
     }
 
     @Override
-    public User[] getAll() {
-        return userDAO.getAll();
+    public List<User> getAll() {
+        return userDAOImpl.getAll();
     }
 
     @Override
     public User getById(Integer id) {
-        return userDAO.getById(id);
+        return userDAOImpl.getById(id);
     }
 
     @Override
-    public User updateById(Integer id, User newUser) {
-        return userDAO.updateById(id, newUser);
+    public boolean updateById(Integer id, User newUser) {
+        return userDAOImpl.updateById(id, newUser);
     }
 
     @Override
-    public User deleteById(Integer id) {
-        return userDAO.deleteById(id);
+    public boolean deleteById(Integer id) {
+        return userDAOImpl.deleteById(id);
     }
 }

@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class AccountUtils {
 
-    public static void createDefaultAccounts() {
+    /*public static void createDefaultAccounts() {
         AccountMenuConsoleCommands.create(new Account(
                 1,
                 "pass1",
@@ -18,12 +18,12 @@ public class AccountUtils {
                 "pass2",
                 2000)
         );
-    }
+    }*/
 
     public static void setAccountAttributes(Account newAccount) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter user id: ");
-        newAccount.setUserId(sc.nextInt());
+        newAccount.setUserId(Integer.parseInt(sc.nextLine()));
         System.out.print("Enter password: ");
         newAccount.setPassword(sc.nextLine());
         System.out.print("Enter money amount: ");

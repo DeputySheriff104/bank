@@ -1,7 +1,6 @@
 package ru.kolesnikov.bank.ui.console.commands.menus.account;
 
-import ru.kolesnikov.bank.dao.account.AccountDAO;
-import ru.kolesnikov.bank.database.account.AccountData;
+import ru.kolesnikov.bank.dao.entities.account.AccountDAOImpl;
 import ru.kolesnikov.bank.models.account.Account;
 import ru.kolesnikov.bank.services.impl.AccountServiceImpl;
 import ru.kolesnikov.bank.ui.console.output.AccountConsoleOutput;
@@ -14,9 +13,7 @@ public class AccountMenuConsoleCommands {
 
     private static final AccountServiceImpl accountService =
             new AccountServiceImpl(
-                    new AccountDAO(
-                            new AccountData(
-                                    new ConcurrentHashMap<>())));
+                            new AccountDAOImpl());
 
     public static void create(Account newAccount) {
         accountService.create(newAccount);
@@ -24,7 +21,6 @@ public class AccountMenuConsoleCommands {
 
     public static void createFromConsoleInput() {
         Account newAccount = new Account();
-        Scanner sc = new Scanner(System.in);
         AccountUtils.setAccountAttributes(newAccount);
         create(newAccount);
     }

@@ -1,40 +1,41 @@
 package ru.kolesnikov.bank.services.impl;
 
-import ru.kolesnikov.bank.dao.account.AccountDAO;
-import ru.kolesnikov.bank.dao.operation.DepositDAO;
+import ru.kolesnikov.bank.dao.entities.operation.DepositDAOImpl;
 import ru.kolesnikov.bank.models.operation.Deposit;
-import ru.kolesnikov.bank.services.DepositService;
+import ru.kolesnikov.bank.services.Service;
 
-public class DepositServiceImpl implements DepositService {
+import java.util.List;
 
-    private final DepositDAO depositDAO;
+public class DepositServiceImpl implements Service<Deposit, Integer> {
 
-    public DepositServiceImpl(DepositDAO depositDAO) {
-        this.depositDAO = depositDAO;
+    private final DepositDAOImpl depositDAOImpl;
+
+    public DepositServiceImpl(DepositDAOImpl depositDAOImpl) {
+        this.depositDAOImpl = depositDAOImpl;
     }
 
     @Override
-    public Deposit create(Deposit newDeposit) {
-        return depositDAO.create(newDeposit);
+    public boolean create(Deposit newDeposit) {
+        return depositDAOImpl.create(newDeposit);
     }
 
     @Override
-    public Deposit[] getAll() {
-        return depositDAO.getAll();
+    public List<Deposit> getAll() {
+        return depositDAOImpl.getAll();
     }
 
     @Override
     public Deposit getById(Integer id) {
-        return depositDAO.getById(id);
+        return depositDAOImpl.getById(id);
     }
 
     @Override
-    public Deposit updateById(Integer id, Deposit newDeposit) {
-        return depositDAO.updateById(id, newDeposit);
+    public boolean updateById(Integer id, Deposit newDeposit) {
+        return depositDAOImpl.updateById(id, newDeposit);
     }
 
     @Override
-    public Deposit deleteById(Integer id) {
-        return depositDAO.deleteById(id);
+    public boolean deleteById(Integer id) {
+        return depositDAOImpl.deleteById(id);
     }
 }

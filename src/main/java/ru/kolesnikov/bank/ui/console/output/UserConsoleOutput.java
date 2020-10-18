@@ -3,9 +3,11 @@ package ru.kolesnikov.bank.ui.console.output;
 import ru.kolesnikov.bank.models.user.User;
 import ru.kolesnikov.bank.ui.console.output.options.ConsoleColors;
 
+import java.util.List;
+
 public class UserConsoleOutput {
 
-    public static String usersToString(User[] users) {
+    public static String usersToString(List<User> users) {
         StringBuilder output = new StringBuilder();
         for (User user: users) {
             output.append(userToString(user));

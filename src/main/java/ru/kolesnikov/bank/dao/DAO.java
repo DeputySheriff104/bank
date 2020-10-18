@@ -1,9 +1,13 @@
 package ru.kolesnikov.bank.dao;
 
+import java.sql.SQLException;
+import java.util.List;
+
 public interface DAO<Entity, Key> {
-    Entity create(Entity model);
-    Entity[] getAll();
+
+    boolean create(Entity model);
+    List<Entity> getAll() throws SQLException;
     Entity getById(Key key);
-    Entity updateById(Key key, Entity model);
-    Entity deleteById(Key key);
+    boolean updateById(Key key, Entity model);
+    boolean deleteById(Key key);
 }

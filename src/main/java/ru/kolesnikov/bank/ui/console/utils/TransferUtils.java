@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class TransferUtils {
 
-    public static void createDefaultTransfers() {
+    /*public static void createDefaultTransfers() {
         TransferMenuConsoleCommands.create(new Transfer(
                 1,
                 2,
@@ -22,16 +22,16 @@ public class TransferUtils {
                 1,
                 400)
         );
-    }
+    }*/
 
     public static void setTransferAttributes(Transfer newTransfer) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter from account id: ");
-        newTransfer.setFromAccountId(sc.nextInt());
+        newTransfer.setFromAccountId(Integer.parseInt(sc.nextLine()));
         System.out.print("Enter to account id: ");
-        newTransfer.setToAccountId(sc.nextInt());
+        newTransfer.setToAccountId(Integer.parseInt(sc.nextLine()));
         System.out.print("Enter money amount: ");
-        newTransfer.setMoneyAmount(sc.nextInt());
+        newTransfer.setMoneyAmount(Integer.parseInt(sc.nextLine()));
         System.out.println();
     }
 }

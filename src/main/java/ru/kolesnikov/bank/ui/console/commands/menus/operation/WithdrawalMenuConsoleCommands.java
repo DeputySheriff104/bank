@@ -1,7 +1,6 @@
 package ru.kolesnikov.bank.ui.console.commands.menus.operation;
 
-import ru.kolesnikov.bank.dao.operation.WithdrawalDAO;
-import ru.kolesnikov.bank.database.operation.WithdrawalData;
+import ru.kolesnikov.bank.dao.entities.operation.WithdrawalDAOImpl;
 import ru.kolesnikov.bank.models.operation.Withdrawal;
 import ru.kolesnikov.bank.services.impl.WithdrawalServiceImpl;
 import ru.kolesnikov.bank.ui.console.output.WithdrawalConsoleOutput;
@@ -14,9 +13,7 @@ public class WithdrawalMenuConsoleCommands {
 
     private static final WithdrawalServiceImpl withdrawalService =
             new WithdrawalServiceImpl(
-                    new WithdrawalDAO(
-                            new WithdrawalData(
-                                    new ConcurrentHashMap<>())));
+                    new WithdrawalDAOImpl());
 
     public static void create(Withdrawal newWithdrawal) {
         withdrawalService.create(newWithdrawal);
@@ -24,7 +21,6 @@ public class WithdrawalMenuConsoleCommands {
 
     public static void createFromConsoleInput() {
         Withdrawal newWithdrawal = new Withdrawal();
-        Scanner sc = new Scanner(System.in);
         WithdrawalUtils.setWithdrawalAttributes(newWithdrawal);
         create(newWithdrawal);
     }

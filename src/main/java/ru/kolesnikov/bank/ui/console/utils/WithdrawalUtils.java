@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class WithdrawalUtils {
 
-    public static void createDefaultWithdrawals() {
+    /*public static void createDefaultWithdrawals() {
         WithdrawalMenuConsoleCommands.create(new Withdrawal(
                 1,
                 300)
@@ -21,14 +21,14 @@ public class WithdrawalUtils {
                 2,
                 600)
         );
-    }
+    }*/
 
     public static void setWithdrawalAttributes(Withdrawal newWithdrawal) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter from account id: ");
-        newWithdrawal.setFromAccountId(sc.nextInt());
+        newWithdrawal.setFromAccountId(Integer.parseInt(sc.nextLine()));
         System.out.print("Enter money amount: ");
-        newWithdrawal.setMoneyAmount(sc.nextInt());
+        newWithdrawal.setMoneyAmount(Integer.parseInt(sc.nextLine()));
         System.out.println();
     }
 }

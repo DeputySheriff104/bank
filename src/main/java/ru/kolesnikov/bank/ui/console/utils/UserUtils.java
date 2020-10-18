@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class UserUtils {
 
-    public static void createDefaultUsers() {
+    /*public static void createDefaultUsers() {
         UserMenuConsoleCommands.create(new User(
                 "login1",
                 "pass1",
@@ -24,7 +24,7 @@ public class UserUtils {
                 "79047718178",
                 "omerta@gmail.com")
         );
-    }
+    }*/
 
     public static void setUserAttributes(User newUser) {
         Scanner sc = new Scanner(System.in);

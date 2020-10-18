@@ -7,9 +7,11 @@ public class Withdrawal extends Operation {
     public Withdrawal() {
     }
 
-    public Withdrawal(int fromAccountId, int moneyAmount) {
+    public Withdrawal(int id, int fromAccountId, int moneyAmount, String date) {
+        setId(id);
         this.fromAccountId = fromAccountId;
         setMoneyAmount(moneyAmount);
+        setDate(date);
     }
 
     public int getFromAccountId() {

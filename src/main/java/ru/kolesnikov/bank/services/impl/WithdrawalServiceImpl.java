@@ -1,39 +1,41 @@
 package ru.kolesnikov.bank.services.impl;
 
-import ru.kolesnikov.bank.dao.operation.WithdrawalDAO;
+import ru.kolesnikov.bank.dao.entities.operation.WithdrawalDAOImpl;
 import ru.kolesnikov.bank.models.operation.Withdrawal;
-import ru.kolesnikov.bank.services.WithdrawalService;
+import ru.kolesnikov.bank.services.Service;
 
-public class WithdrawalServiceImpl implements WithdrawalService {
+import java.util.List;
 
-    private final WithdrawalDAO withdrawalDAO;
+public class WithdrawalServiceImpl implements Service<Withdrawal, Integer> {
 
-    public WithdrawalServiceImpl(WithdrawalDAO withdrawalDAO) {
-        this.withdrawalDAO = withdrawalDAO;
+    private final WithdrawalDAOImpl withdrawalDAOImpl;
+
+    public WithdrawalServiceImpl(WithdrawalDAOImpl withdrawalDAOImpl) {
+        this.withdrawalDAOImpl = withdrawalDAOImpl;
     }
 
     @Override
-    public Withdrawal create(Withdrawal newWithdrawal) {
-        return withdrawalDAO.create(newWithdrawal);
+    public boolean create(Withdrawal newWithdrawal) {
+        return withdrawalDAOImpl.create(newWithdrawal);
     }
 
     @Override
-    public Withdrawal[] getAll() {
-        return withdrawalDAO.getAll();
+    public List<Withdrawal> getAll() {
+        return withdrawalDAOImpl.getAll();
     }
 
     @Override
     public Withdrawal getById(Integer id) {
-        return withdrawalDAO.getById(id);
+        return withdrawalDAOImpl.getById(id);
     }
 
     @Override
-    public Withdrawal updateById(Integer id, Withdrawal newWithdrawal) {
-        return withdrawalDAO.updateById(id, newWithdrawal);
+    public boolean updateById(Integer id, Withdrawal newWithdrawal) {
+        return withdrawalDAOImpl.updateById(id, newWithdrawal);
     }
 
     @Override
-    public Withdrawal deleteById(Integer id) {
-        return withdrawalDAO.deleteById(id);
+    public boolean deleteById(Integer id) {
+        return withdrawalDAOImpl.deleteById(id);
     }
 }

@@ -1,22 +1,18 @@
 package ru.kolesnikov.bank.ui.console.commands.menus.user;
 
-import ru.kolesnikov.bank.dao.user.UserDAO;
-import ru.kolesnikov.bank.database.user.UserData;
+import ru.kolesnikov.bank.dao.entities.user.UserDAOImpl;
 import ru.kolesnikov.bank.models.user.User;
 import ru.kolesnikov.bank.services.impl.UserServiceImpl;
 import ru.kolesnikov.bank.ui.console.output.UserConsoleOutput;
 import ru.kolesnikov.bank.ui.console.utils.UserUtils;
 
 import java.util.Scanner;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class UserMenuConsoleCommands {
 
     private static final UserServiceImpl userService =
             new UserServiceImpl(
-                    new UserDAO(
-                            new UserData(
-                                    new ConcurrentHashMap<>())));
+                    new UserDAOImpl());
 
     public static void create(User newUser) {
         userService.create(newUser);
@@ -24,7 +20,6 @@ public class UserMenuConsoleCommands {
 
     public static void createFromConsoleInput() {
         User newUser = new User();
-        Scanner sc = new Scanner(System.in);
         UserUtils.setUserAttributes(newUser);
         create(newUser);
     }

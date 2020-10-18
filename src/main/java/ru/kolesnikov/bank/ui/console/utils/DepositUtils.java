@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class DepositUtils {
 
-    public static void createDefaultDeposits() {
+    /*public static void createDefaultDeposits() {
         DepositMenuConsoleCommands.create(new Deposit(
                 1,
                 500)
@@ -18,14 +18,14 @@ public class DepositUtils {
                 2,
                 750)
         );
-    }
+    }*/
 
     public static void setDepositAttributes(Deposit newDeposit) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter to account id: ");
-        newDeposit.setToAccountId(sc.nextInt());
+        newDeposit.setToAccountId(Integer.parseInt(sc.nextLine()));
         System.out.print("Enter money amount: ");
-        newDeposit.setMoneyAmount(sc.nextInt());
+        newDeposit.setMoneyAmount(Integer.parseInt(sc.nextLine()));
         System.out.println();
     }
 }

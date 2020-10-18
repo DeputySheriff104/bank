@@ -7,9 +7,11 @@ public class Deposit extends Operation {
     public Deposit() {
     }
 
-    public Deposit(int toAccountId, int moneyAmount) {
+    public Deposit(int id, int toAccountId, int moneyAmount, String date) {
+        setId(id);
         this.toAccountId = toAccountId;
         setMoneyAmount(moneyAmount);
+        setDate(date);
     }
 
     public int getToAccountId() {

@@ -1,4 +1,4 @@
-package ru.kolesnikov.bank.database.utils;
+package ru.kolesnikov.bank.dao.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

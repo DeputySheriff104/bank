@@ -3,9 +3,11 @@ package ru.kolesnikov.bank.ui.console.output;
 import ru.kolesnikov.bank.models.operation.Withdrawal;
 import ru.kolesnikov.bank.ui.console.output.options.ConsoleColors;
 
+import java.util.List;
+
 public class WithdrawalConsoleOutput {
 
-    public static String withdrawalsToString(Withdrawal[] withdrawals) {
+    public static String withdrawalsToString(List<Withdrawal> withdrawals) {
         StringBuilder output = new StringBuilder();
         for (Withdrawal withdrawal: withdrawals) {
             output.append(withdrawalToString(withdrawal));

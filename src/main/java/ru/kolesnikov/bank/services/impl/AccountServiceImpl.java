@@ -1,39 +1,41 @@
 package ru.kolesnikov.bank.services.impl;
 
-import ru.kolesnikov.bank.dao.account.AccountDAO;
+import ru.kolesnikov.bank.dao.entities.account.AccountDAOImpl;
 import ru.kolesnikov.bank.models.account.Account;
-import ru.kolesnikov.bank.services.AccountService;
+import ru.kolesnikov.bank.services.Service;
 
-public class AccountServiceImpl implements AccountService {
+import java.util.List;
 
-    private final AccountDAO accountDAO;
+public class AccountServiceImpl implements Service<Account, Integer> {
 
-    public AccountServiceImpl(AccountDAO accountDAO) {
-        this.accountDAO = accountDAO;
+    private final AccountDAOImpl accountDAOImpl;
+
+    public AccountServiceImpl(AccountDAOImpl accountDAOImpl) {
+        this.accountDAOImpl = accountDAOImpl;
     }
 
     @Override
-    public Account create(Account newAccount) {
-        return accountDAO.create(newAccount);
+    public boolean create(Account newAccount) {
+        return accountDAOImpl.create(newAccount);
     }
 
     @Override
-    public Account[] getAll() {
-        return accountDAO.getAll();
+    public List<Account> getAll() {
+        return accountDAOImpl.getAll();
     }
 
     @Override
     public Account getById(Integer id) {
-        return accountDAO.getById(id);
+        return accountDAOImpl.getById(id);
     }
 
     @Override
-    public Account updateById(Integer id, Account newAccount) {
-        return accountDAO.updateById(id, newAccount);
+    public boolean updateById(Integer id, Account newAccount) {
+        return accountDAOImpl.updateById(id, newAccount);
     }
 
     @Override
-    public Account deleteById(Integer id) {
-        return accountDAO.deleteById(id);
+    public boolean deleteById(Integer id) {
+        return accountDAOImpl.deleteById(id);
     }
 }

@@ -3,9 +3,11 @@ package ru.kolesnikov.bank.ui.console.output;
 import ru.kolesnikov.bank.models.account.Account;
 import ru.kolesnikov.bank.ui.console.output.options.ConsoleColors;
 
+import java.util.List;
+
 public class AccountConsoleOutput {
 
-    public static String accountsToString(Account[] accounts) {
+    public static String accountsToString(List<Account> accounts) {
         StringBuilder output = new StringBuilder();
         for (Account account: accounts) {
             output.append(accountToString(account));

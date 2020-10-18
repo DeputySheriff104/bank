@@ -1,7 +1,6 @@
 package ru.kolesnikov.bank.ui.console.commands.menus.operation;
 
-import ru.kolesnikov.bank.dao.operation.DepositDAO;
-import ru.kolesnikov.bank.database.operation.DepositData;
+import ru.kolesnikov.bank.dao.entities.operation.DepositDAOImpl;
 import ru.kolesnikov.bank.models.operation.Deposit;
 import ru.kolesnikov.bank.services.impl.DepositServiceImpl;
 import ru.kolesnikov.bank.ui.console.output.DepositConsoleOutput;
@@ -14,9 +13,7 @@ public class DepositMenuConsoleCommands {
 
     private static final DepositServiceImpl depositService =
             new DepositServiceImpl(
-                    new DepositDAO(
-                            new DepositData(
-                                    new ConcurrentHashMap<>())));
+                    new DepositDAOImpl());
 
     public static void create(Deposit newDeposit) {
         depositService.create(newDeposit);
@@ -24,7 +21,6 @@ public class DepositMenuConsoleCommands {
 
     public static void createFromConsoleInput() {
         Deposit newDeposit = new Deposit();
-        Scanner sc = new Scanner(System.in);
         DepositUtils.setDepositAttributes(newDeposit);
         create(newDeposit);
     }

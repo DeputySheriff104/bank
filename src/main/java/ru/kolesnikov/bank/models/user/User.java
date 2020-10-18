@@ -13,7 +13,8 @@ public class User extends Entity {
 
     public User() {}
 
-    public User(String login, String password, String firstName, String lastName, String phone, String email) {
+    public User(int id, String login, String password, String firstName, String lastName, String phone, String email) {
+        this.setId(id);
         this.login = login;
         this.password = password;
         this.firstName = firstName;
@@ -21,6 +22,7 @@ public class User extends Entity {
         this.phone = phone;
         this.email = email;
     }
+
 
     public String getLogin() {
         return login;

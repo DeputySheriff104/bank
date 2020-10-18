@@ -3,9 +3,11 @@ package ru.kolesnikov.bank.ui.console.output;
 import ru.kolesnikov.bank.models.operation.Transfer;
 import ru.kolesnikov.bank.ui.console.output.options.ConsoleColors;
 
+import java.util.List;
+
 public class TransferConsoleOutput {
 
-    public static String transfersToString(Transfer[] transfers) {
+    public static String transfersToString(List<Transfer> transfers) {
         StringBuilder output = new StringBuilder();
         for (Transfer transfer: transfers) {
             output.append(transferToString(transfer));

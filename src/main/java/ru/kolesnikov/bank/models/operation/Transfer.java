@@ -8,10 +8,12 @@ public class Transfer extends Operation {
     public Transfer() {
     }
 
-    public Transfer(int fromAccountId, int toAccountId, int moneyAmount) {
+    public Transfer(int id, int fromAccountId, int toAccountId, int moneyAmount, String date) {
+        setId(id);
         this.fromAccountId = fromAccountId;
         this.toAccountId = toAccountId;
         setMoneyAmount(moneyAmount);
+        setDate(date);
     }
 
     public int getFromAccountId() {
